@@ -1,0 +1,46 @@
+{
+  "BNB": {
+    "generate": {
+      "banco": "BNB",
+      "currency": "BOB",
+      "gloss": "Prueba QR",
+      "amount": 10,
+      "singleUse": true,
+      "expirationDate": "2025-12-31",
+      "additionalData": "Datos adicionales",
+      "destinationAccountId": "1"
+    },
+    "status": {
+      "banco": "BNB",
+      "qrId": 59
+    },
+    "list": {
+      "generationDate": "2022-06-15"
+    },
+    "cancel": {
+      "banco": "BNB",
+      "qrId": 59
+    }
+  },
+  "SIP": {
+    "generate": {
+      "banco": "SIP",
+      "alias": "pagoTest123",
+      "callback": "https://miempresa.com/callback",
+      "detalleGlosa": "Pago de servicio",
+      "monto": 50.0,
+      "moneda": "BOB",
+      "fechaVencimiento": "30/12/2025",
+      "tipoSolicitud": "API",
+      "unicoUso": "true"
+    },
+    "status": {
+      "banco": "SIP",
+      "alias": "pagoTest123"
+    },
+    "cancel": {
+      "banco": "SIP",
+      "alias": "pagoTest123"
+    }
+  }
+}
