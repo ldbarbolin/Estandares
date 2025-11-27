@@ -40,4 +40,21 @@ router.post('/status', async (req, res) => {
 });
 
 
+/* CANCELAR */
+router.post('/cancel', async (req, res) => {
+  const { banco } = req.body;
+  try {
+    if (banco === 'BNB') {
+      const r = await bnbClient.post('/QRSimple.API/api/v1/main/CancelQRByIdAsync', req.body);
+      return res.json(adaptarCancelarQR(r));
+    } else if (banco === 'SIP') {
+      const r = await sipClient.post('/api/v1/inhabilitarPago', req.body);
+      return res.json(adaptarCancelarSIP(r));
+    }
+    res.status(400).json({ error: 'Banco no válido' });
+  } catch (err) {
+    res.status(500).json({ error: 'Error comunicándose con el banco mock' });
+  }
+});
+
 module.exports = router;

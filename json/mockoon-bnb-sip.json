@@ -1,0 +1,144 @@
+{
+  "source": "mockoon",
+  "data": [
+    {
+      "name": "BNB-Mock",
+      "port": 3001,
+      "routes": [
+        {
+          "method": "post",
+          "endpoint": "/QRSimple.API/api/v1/main/getQRWithImageAsync",
+          "responses": [
+            {
+              "statusCode": 200,
+              "body": {
+                "id": "51",
+                "qr": "iVBORw0KGgoAAAANSUhEUgAA...",
+                "success": true,
+                "message": null
+              }
+            }
+          ]
+        },
+        {
+          "method": "post",
+          "endpoint": "/QRSimple.API/api/v1/main/getQRStatusAsync",
+          "responses": [
+            {
+              "statusCode": 200,
+              "body": {
+                "id": 59,
+                "statusId": 1,
+                "expirationDate": "2022-06-16T00:00:00",
+                "voucherId": "3JAO702813",
+                "success": true,
+                "message": null
+              }
+            }
+          ]
+        },
+        {
+          "method": "post",
+          "endpoint": "/QRSimple.API/api/v1/main/getQRbyGenerationDateAsync",
+          "responses": [
+            {
+              "statusCode": 200,
+              "body": {
+                "success": true,
+                "message": null,
+                "dTOqrDetails": [
+                  {
+                    "id": 49,
+                    "amount": 20,
+                    "currency": "BOB",
+                    "generationDate": "2022-06-15T19:44:01",
+                    "expirationDate": "2022-06-16T00:00:00",
+                    "statusId": 1,
+                    "gloss": "Prueba",
+                    "destinationAccountNumber": 0
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "method": "post",
+          "endpoint": "/QRSimple.API/api/v1/main/CancelQRByIdAsync",
+          "responses": [
+            {
+              "statusCode": 200,
+              "body": {
+                "success": true,
+                "message": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SIP-Mock",
+      "port": 3002,
+      "routes": [
+        {
+          "method": "post",
+          "endpoint": "/api/v1/generaQr",
+          "responses": [
+            {
+              "statusCode": 200,
+              "body": {
+                "codigo": "0000",
+                "mensaje": "Registro exitoso",
+                "objeto": {
+                  "imagenQr": "iVBORw0KGgoAAAANSUhEUgAA...",
+                  "idQr": "20112601009100312345",
+                  "fechaVencimiento": "30/12/2020",
+                  "bancoDestino": "BANCO XXX",
+                  "cuentaDestino": "12345XXX",
+                  "idTransaccion": 3
+                }
+              }
+            }
+          ]
+        },
+        {
+          "method": "post",
+          "endpoint": "/api/v1/estadoTransaccion",
+          "responses": [
+            {
+              "statusCode": 200,
+              "body": {
+                "codigo": "0000",
+                "mensaje": "Registro exitoso",
+                "objeto": {
+                  "alias": "pagoTest261120201",
+                  "estadoActual": "PENDIENTE",
+                  "idQr": "10420001UZ5123ZRYSIP",
+                  "monto": 20,
+                  "moneda": "BOB",
+                  "nombreCliente": "Juan P\u00e9rez",
+                  "documentoCliente": "7894563"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "method": "post",
+          "endpoint": "/api/v1/inhabilitarPago",
+          "responses": [
+            {
+              "statusCode": 200,
+              "body": {
+                "codigo": "0000",
+                "mensaje": "QR inhabilitado",
+                "objeto": null
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
